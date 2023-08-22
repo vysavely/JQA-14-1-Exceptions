@@ -13,20 +13,6 @@ public class Product {
         this.price = price;
     }
 
-    // Вспомогательные методы для корректной работы equals
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
-        return id == product.id && price == product.price && title.equals(product.title);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, title, price);
-    }
-
     public String getTitle() {
         return title;
     }
@@ -45,6 +31,20 @@ public class Product {
 
     public int getId() {
         return id;
+    }
+
+    // Вспомогательные методы для корректной работы equals
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return id == product.id && price == product.price && title.equals(product.title);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, price);
     }
 
     // геттеры + сеттеры
